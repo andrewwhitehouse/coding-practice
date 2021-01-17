@@ -1,0 +1,26 @@
+service: serverless-secrets
+
+frameworkVersion: '2'
+
+plugins:
+  - serverless-kms-secrets
+custom:
+  serverless-kms-secrets:
+    secretsFile: kms-secrets.${opt.stage, self:provider.stage}.${opt.region, self:provider.region}.yml
+  kmsSecrets: ${file(kms-secrets.${opt.stage, self:provider.stage}.${opt.region, self:provider.region}.yml)}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-west-2
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+      - KMS:Decrypt
+      Resource: ${self:custom.kmsSecrets.keyArn}
+  environment:
+    MY_SECRETS: ${self:custom.kmsSecrets.secrets.MY_SECRETS}
+
+functions:
+  helloWorld:
+    handler: functions/helloWorld.handler
