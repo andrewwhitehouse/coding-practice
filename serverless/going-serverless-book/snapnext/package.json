@@ -1,0 +1,32 @@
+{
+  "name": "snapnext",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "2.787.0",
+    "gm": "1.23.1",
+    "haikunator": "2.1.2",
+    "lodash": "4.17.20",
+    "node-fetch": "2.6.1",
+    "yarn": "^1.22.10"
+  },
+  "devDependencies": {
+    "aws-sdk-mock": "^5.1.0",
+    "jest": "^26.6.3",
+    "lambda-tester": "^4.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/andrewwhitehouse/snapnext.git"
+  },
+  "author": "Andrew Whitehouse <andrew-github@whitehouse.org.uk>",
+  "bugs": {
+    "url": "https://github.com/andrewwhitehouse/snapnext/issues"
+  },
+  "homepage": "https://github.com/andrewwhitehouse/snapnext#readme",
+  "scripts": {
+    "test": "jest"
+  },
+  "description": ""
+}
