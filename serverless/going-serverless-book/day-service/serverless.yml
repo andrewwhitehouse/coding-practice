@@ -1,0 +1,15 @@
+service: day-service
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-west-1
+
+functions:
+  calculateDay:
+    handler: handler.calculateDay
+    events:
+      - http:
+          path: calculate-day
+          method: post
+          cors: true
