@@ -1,0 +1,28 @@
+service: serverless-auth
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-west-2
+  environment:
+    JWT_SECRET: shhh
+
+functions:
+  login:
+    handler: functions/login.handler
+    events:
+      - http:
+          path: login
+          method: post
+          cors: true
+  authorize:
+    handler: functions/authorize.handler
+  getArmadillos:
+    handler: functions/getArmadillos.handler
+    events:
+      - http:
+          path: armadillos
+          method: get
+          cors: true
