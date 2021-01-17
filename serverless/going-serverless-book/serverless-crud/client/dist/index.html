@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>SnippetBin</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0\ 12 q5P2rRUpPvrszuE4W1povHYgTpBfshb" 
+        crossorigin="anonymous"/>
+    <link rel="stylesheet" href="css/app.css"/>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">SnippetBin</a>
+      </nav>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+        <form id="snippets-form">
+          <div class="form-group">
+            <textarea class="form-control" rows="3"
+              placeholder="Enter your text snippet here."
+              v-model="text"></textarea>
+          </div>
+          <button class="btn btn-primary" v-on:click="createSnippet">&#43; Create Snippet</button>
+        </form>
+        <hr/>
+        
+        <div id="snippets-list">
+          <div class="card" v-for="snippet in snippets">
+            <div class="card-body">
+              <small class="card-subtitle text-muted">{{ snippet.id }}</small>
+              <p class="card-text">{{ snippet.text }}</p>
+              <a href="javascript:void(0)" v-on:click="deleteSnippet(snippet)" class="card-link">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+      crossorigin="anonymous"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" 
+      integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjN\ 60 kCk9SaVuEZflJ" 
+      crossorigin="anonymous"></script> 
+  </body>
+</html>
